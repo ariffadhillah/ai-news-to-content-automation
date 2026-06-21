@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -12,7 +13,7 @@ client = OpenAI(
 )
 
 
-def generate_content(prompt: str) -> str:
+def generate_content(prompt: str) -> dict:
     response = client.chat.completions.create(
         model=os.getenv("SUMOPOD_MODEL"),
         messages=[
@@ -21,7 +22,12 @@ def generate_content(prompt: str) -> str:
                 "content": prompt
             }
         ],
-        temperature=0.7
+        temperature=0.4
     )
 
-    return response.choices[0].message.content
+    content = response.choices[0].message.content
+
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError:
+        raise ValueError(f"AI returned invalid JSON:\n{content}")

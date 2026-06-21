@@ -1,10 +1,12 @@
 # app/prompt_builder.py
 
 def build_article_prompt(incident, score, priority):
-    prompt = f"""
+    return f"""
 You are an AI content assistant for a personal injury law firm.
 
-Create a publication-ready legal education draft based on the incident below.
+Create a structured JSON response only.
+Do not include markdown outside the JSON.
+Do not wrap the JSON in code blocks.
 
 Important rules:
 - Do not copy or rewrite the news story.
@@ -30,15 +32,26 @@ Source URL: {incident["source_url"]}
 Priority Score: {score}
 Priority Level: {priority}
 
-Generate the following sections:
+Return this exact JSON structure:
 
-1. SEO Title
-2. Meta Description
-3. Article Summary
-4. Full Blog Article
-5. Frequently Asked Questions
-6. Suggested Internal Links
-7. Suggested External Citations
-8. Social Media Post Variations
-"""
-    return prompt.strip()
+{{
+  "seo_title": "",
+  "meta_description": "",
+  "article_summary": "",
+  "full_article": "",
+  "faq": [
+    {{
+      "question": "",
+      "answer": ""
+    }}
+  ],
+  "suggested_internal_links": [],
+  "suggested_external_citations": [],
+  "social_media_posts": [
+    {{
+      "platform": "",
+      "content": ""
+    }}
+  ]
+}}
+""".strip()

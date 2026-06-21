@@ -23,13 +23,13 @@ for incident in incidents:
     print(f"Generating article for: {incident['title']}")
     print(f"Priority: {priority} | Score: {score}")
 
-    article = generate_content(prompt)
+    article_data = generate_content(prompt)
 
     file_path = save_article_as_markdown(
-        incident=incident,
-        score=score,
-        priority=priority,
-        article=article
+        incident,
+        score,
+        priority,
+        article_data
     )
 
     print(f"Saved to: {file_path}")
