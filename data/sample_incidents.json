@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Truck Collision Leaves Two Injured on Interstate 70",
+        "location": "St. Louis, Missouri",
+        "incident_type": "truck_accident",
+        "severity": "serious",
+        "fatalities": 0,
+        "injuries": 2,
+        "commercial_vehicle": true,
+        "child_involved": false,
+        "dui_suspected": false,
+        "source_url": "https://example.com/news/truck-collision",
+        "summary": "A commercial truck collided with two passenger vehicles on Interstate 70, resulting in multiple injuries."
+    },
+    {
+        "id": 2,
+        "title": "Pedestrian Killed in DUI Crash",
+        "location": "Springfield, Illinois",
+        "incident_type": "pedestrian_accident",
+        "severity": "fatal",
+        "fatalities": 1,
+        "injuries": 0,
+        "commercial_vehicle": false,
+        "child_involved": false,
+        "dui_suspected": true,
+        "source_url": "https://example.com/news/pedestrian-crash",
+        "summary": "A pedestrian was struck and killed by an allegedly intoxicated driver."
+    },
+    {
+        "id": 3,
+        "title": "Motorcycle Accident Injures Teen Rider",
+        "location": "Columbia, Missouri",
+        "incident_type": "motorcycle_accident",
+        "severity": "moderate",
+        "fatalities": 0,
+        "injuries": 1,
+        "commercial_vehicle": false,
+        "child_involved": true,
+        "dui_suspected": false,
+        "source_url": "https://example.com/news/motorcycle-accident",
+        "summary": "Teen rider transported to hospital after intersection collision."
+    }
+]
