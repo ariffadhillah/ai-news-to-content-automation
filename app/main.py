@@ -4,6 +4,7 @@ from incident_scorer import calculate_score, classify_priority
 from prompt_builder import build_article_prompt
 from content_generator import generate_content
 from export_markdown import save_article_as_markdown
+from export_json import save_json_output
 
 
 with open("data/sample_incidents.json", "r") as f:
@@ -24,6 +25,17 @@ for incident in incidents:
     print(f"Priority: {priority} | Score: {score}")
 
     article_data = generate_content(prompt)
+
+    json_path = save_json_output(
+        incident,
+        score,
+        priority,
+        article_data
+    )
+
+    print(
+        f"JSON Saved: {json_path}"
+    )
 
     file_path = save_article_as_markdown(
         incident,
